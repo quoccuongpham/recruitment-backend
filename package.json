@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest",
-		"dev": "nodemon ./src/index.js",
+		"dev": "nodemon server.js",
 		"sequelize-auto": "sequelize-auto -o ./database/models -d recruitment -h localhost -u postgres -p 5432 -x cuongpham@aA -e postgres"
 	},
 	"keywords": [],
