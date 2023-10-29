@@ -7,7 +7,7 @@ const ApiError = require("./src/api-error");
 require("dotenv").config();
 // const db = require("../database/models/index");
 
-// const auth = require("./routes/auth");
+const auth = require("./src/routes/auth.route");
 // const employer = require("./routes/employer");
 // const employee = require("./routes/employee");
 
@@ -23,11 +23,11 @@ app.use(
 // app.use("/public/upload/avatar", express.static("./public/upload/avatar"));
 // app.use("/public/images/mail", express.static("./public/images/mail"));
 // routes
-// app.use("/auth", auth);
+app.use("/auth", auth);
 // app.use("/employer", employer);
 // app.use("/employee", employee);
 
-app.get("/", async (req, res) => {
+app.get("/", async (req, res, next) => {
 	res.status(200).json({
 		success: true,
 		mess: "wellcome",
