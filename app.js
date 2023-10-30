@@ -8,7 +8,7 @@ require("dotenv").config();
 // const db = require("../database/models/index");
 
 const auth = require("./src/routes/auth.route");
-// const employer = require("./routes/employer");
+const employer = require("./src/routes/employer.route");
 // const employee = require("./routes/employee");
 
 const app = express();
@@ -20,11 +20,11 @@ app.use(
 	cors({ origin: true, credentials: true, exposedHeaders: ["set-cookie"] })
 );
 // public
-// app.use("/public/upload/avatar", express.static("./public/upload/avatar"));
+app.use("/public/upload/avatar", express.static("./public/upload/avatar"));
 // app.use("/public/images/mail", express.static("./public/images/mail"));
 // routes
 app.use("/auth", auth);
-// app.use("/employer", employer);
+app.use("/employer", employer);
 // app.use("/employee", employee);
 
 app.get("/", async (req, res, next) => {
