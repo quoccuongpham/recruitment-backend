@@ -57,6 +57,19 @@ class JobPostService {
 		}
 	}
 
+	async delete_by_id(id) {
+		try {
+			return await this.JobPost.destroy({
+				where: {
+					id: id,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			return null;
+		}
+	}
+
 	async find_by_user_id(id) {
 		try {
 			return await this.JobPost.findAll({
@@ -64,6 +77,26 @@ class JobPostService {
 					post_by_id: id,
 				},
 			});
+		} catch (error) {
+			return null;
+		}
+	}
+	async find_by_job_id(id) {
+		try {
+			return await this.JobPost.findOne({
+				where: {
+					id: id,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			return null;
+		}
+	}
+
+	async find_all() {
+		try {
+			return await this.JobPost.findAll();
 		} catch (error) {
 			return null;
 		}

@@ -65,7 +65,7 @@ class UserAccountService {
 		try {
 			const data_update = this._extract_data(data);
 
-			return await this.UserAccount.update(data, {
+			return await this.UserAccount.update(data_update, {
 				where: {
 					id: id,
 				},

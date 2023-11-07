@@ -94,7 +94,7 @@ exports.logout = async function (req, res) {
 
 exports.get_info = async function (req, res, next) {
 	if (!req.signedCookies.token) {
-		return next(ApiError(400, "Cookie rong"));
+		return next(new ApiError(400, "Cookie rong"));
 	} else {
 		try {
 			const user_account_model = initModels(db.sequelize).user_account;

@@ -27,6 +27,19 @@ class JobLocationService {
 			return null;
 		}
 	}
+
+	async find(id) {
+		try {
+			return await this.JobLocation.findOne({
+				where: {
+					id: id,
+				},
+			});
+		} catch (error) {
+			console.log(error);
+			return null;
+		}
+	}
 }
 
 module.exports = JobLocationService;

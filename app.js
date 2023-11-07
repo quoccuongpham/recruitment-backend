@@ -9,7 +9,8 @@ require("dotenv").config();
 
 const auth = require("./src/routes/auth.route");
 const employer = require("./src/routes/employer.route");
-// const employee = require("./routes/employee");
+const employee = require("./src/routes/employee.route");
+const general = require("./src/routes/general.route");
 
 const app = express();
 app.use(morgan("dev"));
@@ -21,11 +22,13 @@ app.use(
 );
 // public
 app.use("/public/upload/avatar", express.static("./public/upload/avatar"));
+app.use("/public/upload/job_post", express.static("./public/upload/job_post"));
 // app.use("/public/images/mail", express.static("./public/images/mail"));
 // routes
 app.use("/auth", auth);
 app.use("/employer", employer);
-// app.use("/employee", employee);
+app.use("/employee", employee);
+app.use("/general", general);
 
 app.get("/", async (req, res, next) => {
 	res.status(200).json({
