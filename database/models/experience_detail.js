@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     is_current_job: {
-      type: DataTypes.CHAR(1),
-      allowNull: false
+      type: DataTypes.BOOLEAN,
+      allowNull: true
     },
     start_date: {
       type: DataTypes.DATEONLY,

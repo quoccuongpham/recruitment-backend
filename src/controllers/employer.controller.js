@@ -169,9 +169,6 @@ exports.delete_job = async (req, res, next) => {
 		const job_post_activity_service = new JobPostActivityService(
 			models.job_post_activity
 		);
-		const job_post_skill_set_service = new JobPostSkillSetSetvice(
-			models.job_post_skill_set
-		);
 
 		const id_job = req.body.id_job;
 		const job = await job_post_service.find_by_job_id(id_job);
@@ -179,7 +176,6 @@ exports.delete_job = async (req, res, next) => {
 			return next(new ApiError(400, "Dont have permisstion"));
 		}
 
-		await job_post_skill_set_service.delete_by_job_id(id_job);
 		await job_post_activity_service.delete_by_id(id_job);
 		await job_post_service.delete_by_id(id_job);
 

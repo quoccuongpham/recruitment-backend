@@ -118,11 +118,11 @@ exports.get_profile = async (req, res, next) => {
 			models.education_detail,
 			models.experience_detail
 		);
-
+		console.log(rs);
 		res.json({
 			success: true,
 			message: "get profile successfully",
-			dataValues: rs.dataValues,
+			dataValues: rs?.dataValues,
 		});
 	} catch (error) {
 		console.log(error);

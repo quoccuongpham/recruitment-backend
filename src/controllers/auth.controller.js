@@ -38,7 +38,7 @@ exports.login = async function (req, res, next) {
 						user_type_id: user_info.dataValues.user_type_id,
 					});
 				} else {
-					next(new ApiError(400, "Missing username or password"));
+					next(new ApiError(400, "Email hoặc mật khẩu không đúng"));
 				}
 			} else {
 				next(new ApiError(400, "Missing username or password"));
